@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :items
   resources :users
-  root to: 'static#new'
+  root to: 'static#welcome'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'users#destroy'
