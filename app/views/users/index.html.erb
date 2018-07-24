@@ -1,0 +1,4 @@
+<h2>Community Members</h2>
+<% @users.each do |u| %>
+<%=link_to u.name, user_path(u) %>   <%= u.city %>, <%= u.state %>  <br>  
+<% end %>

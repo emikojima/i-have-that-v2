@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   resources :reviews
-  resources :items
-  resources :users
+  resources :users, except:[:show]
+  resources :users, only:[:show] do
+    resources :items, only:[:show, :index, :new, :edit]
+
+  end
   root to: 'static#welcome'
+  get '/items', to: 'items#all'
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'users#destroy'

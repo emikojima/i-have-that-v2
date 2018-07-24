@@ -5,6 +5,8 @@
     padding: 0;
   }
 
+
+
   html, body {
     height: 100%;
     width: 100%;
@@ -14,6 +16,7 @@
   body {
    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
    line-height:  1.6;
+    background: url("nature1.jpg");
 
   }
 

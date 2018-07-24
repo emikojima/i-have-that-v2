@@ -1,0 +1,9 @@
+<div class="form">
+  <% if @user.id == current_user.id %>
+  <%= link_to @item.name, edit_user_item_path(@user, @item) %><br>
+  <% else %>
+  <%= @item.name %>
+  <% end %>
+  <p><%= @item.description %></p>
+  <p><%= @item.category %> </p>
+</div>
