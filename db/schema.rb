@@ -10,15 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_23_190340) do
+ActiveRecord::Schema.define(version: 2018_07_24_205437) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "category"
     t.boolean "available", default: true
     t.integer "user_id"
-    t.integer "review_id"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 2018_07_23_190340) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.string "content"
+    t.integer "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

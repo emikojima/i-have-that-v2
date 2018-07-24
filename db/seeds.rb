@@ -5,5 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(name: "lucy", email: "lucy@test.com", city: "Oakland", state: "CA")
-User.create(name: "lee", email: "lee@test.com", city: "Oakland", state: "CA")
+User.create(name: "keiko", email: "keiko@test.com", password: "keiko", city: "Oakland", state: "CA")
+User.create(name: "suni", email: "suni@test.com", password: "suni", city: "Oakland", state: "CA")
+User.create(name: "yuri", email: "yuri@test.com", password: "yuri", city: "Oakland", state: "CA")
+
+Category.create(name:"Outdoors - Warm Weather", description: "Camping, Fishing, Backpacking, etc.")
+Category.create(name:"Outdoors - Cold Weather", description: "Ski, Snowboarding, Snowshoe, etc.")
+Category.create(name:"Building Tools", description: "Woodworking tools, saws, drills, etc,")
+Category.create(name:"Gardening Tools", description: "Shovels, lawn mowers, rakes, etc,")
+
+Item.create(name: "Circ Saw", description: "Circ Saw for cutting planks of wood.", category_id: "3", user_id: "2")

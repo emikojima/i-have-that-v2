@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  has_many :reviews
   belongs_to :user
-  belongs_to :review, optional: true
+  belongs_to :category, optional: true
 end
