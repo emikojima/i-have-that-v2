@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :items
   resources :reviews
   resources :users, except:[:show]
   resources :users, only:[:show] do
