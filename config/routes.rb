@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  resources :items
   resources :reviews
   resources :users, except:[:show]
   resources :users, only:[:show] do
-    resources :items, only:[:show, :index, :new, :edit]
+    resources :items, only:[:show, :index, :new, :edit, :create, :update, :destroy]
 
   end
   root to: 'static#welcome'

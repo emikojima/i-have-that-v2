@@ -1,12 +1,19 @@
 class ItemsController < ApplicationController
 
   def new
-     @item = Item.new(user_id: params[:user_id])
-  end
+    @user = User.find(params[:user_id])
+    @item = Item.new(user_id: @user.id)
+   end
+
+   def index
+     @user = current_user
+     @items = @user.items
+   end
 
   def create
     @item = Item.create(item_params)
-    redirect_to '/'
+    @user = User.find(params[:user_id])
+    redirect_to user_item_path(@user, @item)
   end
 
   def show
@@ -21,6 +28,20 @@ class ItemsController < ApplicationController
   def edit
     @user = User.find_by(id: params[:user_id])
     @item = @user.items.find_by(id: params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:user_id])
+    @item = @user.items.find_by(id: params[:id])
+    @item.update(item_params)
+    redirect_to user_item_path(@user, @item)
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:user_id])
+    @item = @user.items.find_by(id: params[:id])
+    @item.delete
+    redirect_to user_items_path(@user)
   end
 
   private

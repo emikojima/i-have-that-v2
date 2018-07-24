@@ -1,6 +1,9 @@
 <div class="form">
+  <%= @item.name %><br>
   <% if @user.id == current_user.id %>
-  <%= link_to @item.name, edit_user_item_path(@user, @item) %><br>
+  <%= link_to "Edit Item", edit_user_item_path(@user, @item) %><br>
+  <%= link_to "Delete Item", user_item_path(@user, @item), method: :delete %>
+
   <% else %>
   <%= @item.name %>
   <% end %>
