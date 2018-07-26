@@ -11,5 +11,7 @@
       ∇ <%= @item.name %> (<%= @item.category.name %>)∇ <br>
       <%= @item.description %><br>
       Available: <%= @item.available ? "Available" : "Please Check Back Later" %>
+      <br>Contact community member <a href="mailto:<%= @item.user.email %>?subject=Message from IHT Re: <%= @item.name %> &body=Message sent from IHT (I HAVE THAT App) "> <%=@item.user.name.upcase%></a> to borrow this item.
+
   <% end %>
 </div>

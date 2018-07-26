@@ -4,13 +4,13 @@
 <% end %>
  <% if params[:search] == nil %>
     <ul> <% @items.each do |i| %>
-    <li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇ <br>
+    <br><li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇ <br>
      : Located in <%= i.user.city %> <%= i.user.state %> :
     <p> Available: <%= i.available ? "Yes" : "Please Check Back Later" %></li> </p>
     <% end %></ul>
 <% else %>
     <ul> <% @items.flatten.each do |i| %>
-    <li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇
+    <br> <li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇
     <p>  : located in <%= i.user.city %> <%= i.user.state %> :</p> </li>
     <%end%>
 <%end %>

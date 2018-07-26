@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   end
 
   def all
-    Item.find_location
     @user = User.find_by(id: params[:user_id])
     @items = []
     if params[:search]
