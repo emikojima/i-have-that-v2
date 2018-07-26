@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
+
   def new
-    @user = User.new
+    if !logged_in?
+      @user = User.new
+    else
+      redirect_to user_items_path
+    end
   end
 
   def create
@@ -9,6 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
+      @error = @user.errors.full_messages
       render 'new'
     end
   end
@@ -29,6 +35,12 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update(user_params)
     redirect_to user_path(@user)
+  end
+
+
+  def destroy
+    session.delete :user_id
+    redirect_to '/'
   end
 
   private

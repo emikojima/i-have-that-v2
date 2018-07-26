@@ -1,27 +1,38 @@
 <div class=form>
 
   </ul>
-  <% if current_user.id == params[:id].to_i  %>
-  <h3 >Hello, <%= @user.name %>.</h3>
-  Your Email: <%= @user.email %><br>
-  Your Location: <%= @user.city %>, <%= @user.state %><br>
-  Your Items:
-  <ul>
-    <li> <% @user.items.each do |i| %>
-    <%= link_to i.name, user_item_path(@user, i) %>
-    <% end %> </li><br>
-  <%= link_to "Add item", new_user_item_path(@user) %><br>
-  <%= link_to "Edit Your Profile", edit_user_path %>
-  <% else %>
-  <h3 >User: <%= @user.name %></h3>
-  Location: <%= @user.city %>, <%= @user.state %><br>
-  Items for lending:
-  <ul>
-    <li> <% @user.items.each do |i| %>
-    Item Name:<%= i.name %><br>
-    Available?<%= i.available %>
-    <% end %> </li><br>
 
+  <% if current_user.id == params[:id].to_i  %>
+      <p>Δ Δ Δ</p>
+      <h3 >Hello, <%= @user.name %>.</h3>
+      Your Email: <%= @user.email %><br>
+      Your Location: <%= @user.city %>, <%= @user.state %>
+      <br><p>∇ ∇ ∇</p>
+      <p>Your Items:</p>
+        <% if @user.items.empty? %>
+          <%= "You have no items listed for lending." %>
+        <% else %>
+          <ul><li> <% @user.items.each do |i| %>
+          <%= link_to i.name, user_item_path(@user, i) %><br>
+          <% end %> </li><br>
+          <%= link_to "Add item", new_user_item_path(@user) %><br>
+          <%= link_to "Edit Your Profile", edit_user_path %>
+          <% end %>
+  <% else %>
+    <p>Δ Δ Δ</p>
+    <h3 >User: <%= @user.name %></h3>
+    Location: <%= @user.city %>, <%= @user.state %><br>
+      <p>∇ ∇ ∇</p>
+    Items for lending:<br><br>
+    <% if @user.items.empty? %>
+      <%= "There are no items listed for lending." %>
+    <% else %>
+      <ul>
+      <li> <% @user.items.each do |i| %>
+      Item Name: <%= link_to i.name, user_item_path(@user, i) %> <br>
+      Item Availability: <%= i.available == true ? "   Available" : "   Please Check Back Later"%><br><br>
+      <% end %> </li>
+    <% end %>
   <% end %>
 
 </div>

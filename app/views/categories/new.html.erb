@@ -1,0 +1,18 @@
+Existing Categories:
+<ul>
+  <% @categories.each do |c| %>
+<li>  <%= c.name %><br>
+  <%= c.description %></li><br>
+  <% end %>
+
+</ul>
+
+
+Make a New Category
+<%= form_for @category do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br>
+<%= f.label :description %>
+<%= f.text_field :description %><br>
+<%= f.submit %>
+<% end %>

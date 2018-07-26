@@ -1,19 +1,26 @@
 class ItemsController < ApplicationController
 
+
   def new
     @user = User.find(params[:user_id])
     @item = Item.new(user_id: @user.id)
+    @catgories = Category.all
    end
 
    def index
-     @user = current_user
+     @user = User.find_by(id: params[:user_id])
      @items = @user.items
    end
 
   def create
-    @item = Item.create(item_params)
-    @user = User.find(params[:user_id])
-    redirect_to user_item_path(@user, @item)
+      @item = Item.new(item_params)
+      @user = User.find(params[:user_id])
+    if @item.save
+      redirect_to user_item_path(@user, @item)
+    else
+      @error = @item.errors.full_messages
+      render 'new'
+    end
   end
 
   def show
@@ -22,12 +29,23 @@ class ItemsController < ApplicationController
   end
 
   def all
-    @items = Item.all
+    Item.find_location
+    @user = User.find_by(id: params[:user_id])
+    @items = []
+    if params[:search]
+      @users = User.where(city: params[:search])
+      @users.each do |user|
+          @items << user.items
+      end
+    else
+      @items = Item.all
+    end
   end
 
   def edit
     @user = User.find_by(id: params[:user_id])
     @item = @user.items.find_by(id: params[:id])
+    @catgories = Category.all
   end
 
   def update
@@ -46,6 +64,8 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :description, :user_id, :review_id, :availability)
+    params.require(:item).permit(:name, :description, :user_id, :review_id, :available, :category_id, :city)
   end
+
+
 end

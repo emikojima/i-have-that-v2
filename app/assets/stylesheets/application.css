@@ -82,6 +82,16 @@
     text-align:center;
     color:white;
   }
+  .error {
+    background-color: yellow;
+    width: 100%;
+  }
+
+  .field_with_errors {
+      border: 1px solid red;
+      display: inline; 
+  }
+
   ol {
     text-align: center;
   }
