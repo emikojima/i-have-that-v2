@@ -10,13 +10,15 @@
       <br><p>∇ ∇ ∇</p>
       <p>Your Items:</p>
         <% if @user.items.empty? %>
-          <%= "You have no items listed for lending." %>
+          <%= "You have no items listed for lending." %><br>
+          <%= link_to "Add item", new_user_item_path(@user) %><br>
+          <%= link_to "Edit Your Profile", edit_user_path(@user) %>
         <% else %>
           <ul><li> <% @user.items.each do |i| %>
           <%= link_to i.name, user_item_path(@user, i) %><br>
-          <% end %> </li><br>
           <%= link_to "Add item", new_user_item_path(@user) %><br>
-          <%= link_to "Edit Your Profile", edit_user_path %>
+          <%= link_to "Edit Your Profile", edit_user_path(@user) %>
+          <% end %> </li><br>
           <% end %>
   <% else %>
     <p>Δ Δ Δ</p>
