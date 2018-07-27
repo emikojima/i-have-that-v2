@@ -1,6 +1,4 @@
-source 'https://rubygems.org'
-
-
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1'
@@ -15,7 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'geocoder'
+
 
 # bootstrap
 
@@ -32,8 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
-gem 'omniauth-facebook'
-gem "omniauth-google-oauth2", "~> 0.2.1"
+gem "omniauth-facebook"
+gem 'omniauth-google-oauth2', '~> 0.5.3'
+
 
 
 
@@ -41,8 +40,6 @@ gem "omniauth-google-oauth2", "~> 0.2.1"
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
