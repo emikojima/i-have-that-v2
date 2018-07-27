@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   def new
     @category = Category.new
     @categories = Category.all
@@ -12,7 +11,6 @@ class CategoriesController < ApplicationController
 
   def index
       @categories = Category.all
-    
   end
 
   private

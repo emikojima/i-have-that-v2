@@ -1,6 +1,4 @@
 class ItemsController < ApplicationController
-
-
   def new
     @user = User.find(params[:user_id])
     @item = Item.new(user_id: @user.id)
@@ -34,7 +32,7 @@ class ItemsController < ApplicationController
     if params[:search]
       @users = User.where(city: params[:search].upcase)
       @users.each do |user|
-          @items << user.items
+      @items << user.items
       end
     else
       @items = Item.all
@@ -65,6 +63,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :user_id, :review_id, :available, :category_id, :city)
   end
-
-
 end

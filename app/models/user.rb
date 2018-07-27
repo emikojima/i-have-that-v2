@@ -12,8 +12,6 @@ class User < ApplicationRecord
   before_update { |user| user.state = state.upcase }
   accepts_nested_attributes_for :items
 
-
-
   # geocoded_by :address
   # after_validation :geocode, if: => :address_changed?
   # after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
@@ -25,15 +23,10 @@ class User < ApplicationRecord
       user.email = auth.info.email
       user.password = user.password_confirmation = SecureRandom.urlsafe_base64(n=6)
       user.save!
-      end
-		end
+    end
+	end
 
   def address
   [street, city, state, country].compact.join(', ')
   end
-
-  def downcase
-    self.name.downcase
-  end
-
 end

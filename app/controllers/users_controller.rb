@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-  
-
   def new
     if !logged_in?
       @user = User.new
@@ -38,7 +36,6 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-
   def destroy
     session.delete :user_id
     redirect_to '/'
@@ -48,7 +45,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation, :city, :state, :email)
   end
-
-
-
 end

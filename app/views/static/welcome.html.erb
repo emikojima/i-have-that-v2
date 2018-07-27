@@ -9,12 +9,14 @@
         <%= link_to "Sign In", signin_path %><br>
         <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
         <br><br><br>
-<div class="sidebar">
-  <h3>Environment</h3>
-  <ul>
-    <li><b>Ruby:</b> <%= "RAILS_VERSION" %></li>
-    <li><b>Environment:</b> <%= "RACK_ENV" %></li>
-    <li><b>Server:</b> <%=["SERVER_SOFTWARE"] %></li>
-    <li><b>Port:</b> <%= ["SERVER_PORT"] %></li>
-  </ul>
+    </div>
+  <div class="sidebar">
+    <h3>Environment</h3>
+    <ul>
+      <li><b>Ruby:</b> <%= "RAILS_VERSION" %></li>
+      <li><b>Environment:</b> <%= "RACK_ENV" %></li>
+      <li><b>Server:</b> <%=["SERVER_SOFTWARE"] %></li>
+      <li><b>Port:</b> <%= ["SERVER_PORT"] %></li>
+    </ul>
+  </div>
 </div>

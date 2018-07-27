@@ -1,13 +1,11 @@
 <h2>Categories:</h2>
 <ul>
-
-<br><li> <% @categories.group(:name).each do |cat|%>
-  <h3>∇ <%= cat.name %> ∇</h3>
-  Description: <%= cat.description %><br>
-<%= cat.items.count %> item(s) in this category:<br>
-  <% cat.items.each do |item|%>
-  ◦ <%=link_to item.name, user_item_path(item.user_id, item) %><br>
-  <% end %><br>
-  <% end %>
-</li>
+  <br><li><% @categories.group(:name).each do |cat|%>
+    <h3>∇ <%= cat.name %> ∇</h3>
+    Description: <%= cat.description %><br>
+    <%= cat.items.count %> item(s) in this category:<br>
+    <% cat.items.each do |item|%>
+      ◦ <%=link_to item.name, user_item_path(item.user_id, item) %><br>
+      <% end %><br>
+  <% end %></li>
 </ul>
