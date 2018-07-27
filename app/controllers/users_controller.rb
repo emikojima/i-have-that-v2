@@ -27,7 +27,12 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    if own_page?
+      @user = current_user
+    else
+      @error = "You cannot edit someone else's page."
+      redirect_to users_path
+    end
   end
 
   def update
