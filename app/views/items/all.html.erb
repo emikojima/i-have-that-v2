@@ -6,7 +6,7 @@
     <ul> <% @items.each do |i| %>
     <br><li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇ <br>
      : Located in <%= i.user.city %> <%= i.user.state %> :
-    <p> Available: <%= i.available ? "Yes" : "Please Check Back Later" %></li> </p>
+    <p> Availability: <%= i.available ? "This item is AVAILABLE!" : "UNAVAILABLE. Please Check Back Later" %></li> </p>
     <% end %></ul>
 <% else %>
     <ul> <% @items.flatten.each do |i| %>

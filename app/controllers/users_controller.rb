@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
 
   def new
     if !logged_in?
@@ -47,5 +48,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :password, :password_confirmation, :city, :state, :email)
   end
+
+
 
 end

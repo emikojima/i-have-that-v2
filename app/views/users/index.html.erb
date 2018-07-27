@@ -1,4 +1,5 @@
 <h2>Community Members</h2>
-<% @users.each do |u| %>
-  ◦ <%= link_to u.name, user_path(u) %>  ◦  <%= u.city %>, <%= u.state %>  <br>
-<% end %>
+  <% @users.each do |u| %>
+      <h3>◦ <%= link_to u.name, user_path(u) %>  ◦</h3>
+      <p><%= u.city %>, <%= u.state %></p> <br>
+  <% end %>

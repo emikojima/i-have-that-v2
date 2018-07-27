@@ -3,14 +3,15 @@
       Your Item:<br>
       ∇ <%= @item.name %> (<%= @item.category.name %>) ∇ <br>
       <%= @item.description %><br>
-      Available: <%= @item.available ? "Available" : "Please Check Back Later" %><br><br>
+      Availability: <%= @item.available ? "This item is AVAILABLE" : "UNAVAILABLE. Please Check Back Later" %><br><br>
       <%= link_to "Edit This Item", edit_user_item_path(@user, @item) %><br>
       <%= link_to "Delete This Item", user_item_path(@user, @item), method: :delete %>
   <% else %>
-      <h2> <%= @user.name %>'s Items</h2><br>
+      <h2> <%= @user.name %>'s Item</h2><br>
       ∇ <%= @item.name %> (<%= @item.category.name %>)∇ <br>
       <%= @item.description %><br>
-      Available: <%= @item.available ? "Available" : "Please Check Back Later" %>
+      Availability: <%= @item.available ? "This item is AVAILABLE" : "UNAVAILABLE. Please Check Back Later" %>
+      <br>All of <%= link_to "#{@user.name}'s items", user_path(@user) %>
       <br>Contact community member <a href="mailto:<%= @item.user.email %>?subject=Message from IHT Re: <%= @item.name %> &body=Message sent from IHT (I HAVE THAT App) "> <%=@item.user.name.upcase%></a> to borrow this item.
 
   <% end %>

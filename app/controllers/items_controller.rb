@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
     @user = User.find_by(id: params[:user_id])
     @items = []
     if params[:search]
-      @users = User.where(city: params[:search])
+      @users = User.where(city: params[:search].upcase)
       @users.each do |user|
           @items << user.items
       end

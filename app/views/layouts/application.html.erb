@@ -24,7 +24,7 @@
     <h1 style="text-align:center; ">Welcome to I HAVE THAT!</h1>
     <h3 style="text-align:center; ">A community lending page.</h3>
     </div>
-    
+
     <div class="error">
       <% if @error != nil %>
         <% @error.each do |e| %>
@@ -35,10 +35,11 @@
     <%= yield %>
     <footer class="branding">
       <%if controller_name != "sessions" && logged_in?%>
-      <%=link_to "Community", users_path%><br>
-      <%=link_to "All Items", items_path%><br>
-      <%=link_to "My Profile", user_path(current_user)%><br>
-      <%=link_to "Log Out", '/logout'%><br>
+        <%=link_to "My Profile", user_path(current_user)%><br>
+        <%=link_to "Community", users_path%><br>
+        <%=link_to "All Items", items_path%><br>
+        <%=link_to "Items by Category", categories_path%><br>
+        <%=link_to "Log Out", '/logout'%><br>
       <% end %>
     <small>&copy; 2018 <strong>I Have That (IHC)</strong></small>
   </footer>

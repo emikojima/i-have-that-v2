@@ -3,11 +3,17 @@ class User < ApplicationRecord
 
   has_many :items
   has_many :categories, through: :items
-  validates :name, presence: true, uniqueness: true, case_sensitive: false
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence: true, uniqueness: true
   default_scope -> { order('name ASC') }
-
+  before_save { |user| user.city = city.upcase }
+  before_update { |user| user.city = city.upcase }
+  before_save { |user| user.state = state.upcase }
+  before_update { |user| user.state = state.upcase }
   accepts_nested_attributes_for :items
+
+
+
   # geocoded_by :address
   # after_validation :geocode, if: => :address_changed?
   # after_validation :geocode, if: ->(obj){ obj.address.present? and obj.address_changed? }
