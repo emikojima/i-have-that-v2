@@ -6,7 +6,11 @@
       <p>Δ Δ Δ</p>
       <h3 >Hello, <%= @user.name %>.</h3>
       Your Email: <%= @user.email %><br>
-      Your Location: <%= @user.city %>, <%= @user.state %>
+      <% if @user.city.empty? || @user.state.empty? %>
+        *** Please add your<%= link_to " location", edit_user_path(@user) %> ***
+      <% else %>
+        Your Location: <%= @user.city %>, <%= @user.state %>
+      <% end %>
       <br><p>∇ ∇ ∇</p>
       <p>Your Items:</p>
         <% if @user.items.empty? %>
@@ -15,8 +19,8 @@
           <%= link_to "Edit Your Profile", edit_user_path(@user) %>
         <% else %>
           <ul><li> <% @user.items.each do |i| %>
-          <%= link_to i.name, user_item_path(@user, i) %><br>
-          <%= link_to "Add item", new_user_item_path(@user) %><br>
+          ◦ <%= link_to i.name, user_item_path(@user, i) %><br>
+          <br> <%= link_to "Add item", new_user_item_path(@user) %><br>
           <%= link_to "Edit Your Profile", edit_user_path(@user) %>
           <% end %> </li><br>
           <% end %>
@@ -27,7 +31,7 @@
       <p>∇ ∇ ∇</p>
     Items for lending:<br><br>
     <% if @user.items.empty? %>
-      <%= "There are no items listed for lending." %>
+      <%= "There are no items listed for lending." %><br>
     <% else %>
       <ul>
       <li> <% @user.items.each do |i| %>

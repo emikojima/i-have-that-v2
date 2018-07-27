@@ -18,9 +18,7 @@ class User < ApplicationRecord
       user.name = auth.info.name
       user.email = auth.info.email
       user.password = user.password_confirmation = SecureRandom.urlsafe_base64(n=6)
-
       user.save!
-
       end
 		end
 

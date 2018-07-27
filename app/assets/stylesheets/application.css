@@ -83,7 +83,8 @@
     color:white;
   }
   .error {
-    background-color: yellow;
+    font-family: "Times New Roman", Times, serif;
+    color : red;
     width: 100%;
   }
 

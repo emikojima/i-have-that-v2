@@ -14,12 +14,13 @@ end
     redirect_to user_path(@user)
   end
   def sign_in_with_password
-     if @user = User.find_by(name: params[:user][:name])
-       @user.authenticate(params[:user][:password])
+      @user = User.find_by(name: params[:user][:name])
+       if @user && @user.authenticate(params[:user][:password])
        session[:user_id] = @user.id
        redirect_to user_path(@user)
      else
-       redirect_to '/signin'
+       @error = ["Invalid username and/or password"]
+       render 'new'
      end
     end
 
