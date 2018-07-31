@@ -40,9 +40,13 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @user = find_user
-    @item = @user.items.find_by(id: params[:id])
     @catgories = Category.all
+    if own_page?
+      @user = find_user
+      @item = @user.items.find_by(id: params[:id])
+    else
+      redirect_to items_path
+    end
   end
 
   def update

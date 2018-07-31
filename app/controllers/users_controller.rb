@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if own_page?
+    if current_user.id == params[:id].to_i
       @user = current_user
     else
       @error = "You cannot edit someone else's page."

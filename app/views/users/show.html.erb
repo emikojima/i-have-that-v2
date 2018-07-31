@@ -4,7 +4,7 @@
       <h3 >Hello, <%= @user.name %>.</h3>
       Your Email: <%= @user.email %><br>
         <% if @user.city.empty? || @user.state.empty? %>
-          *** Please add your<%= link_to " location", edit_user_path(@user) %> ***
+          *** Please add your <%= link_to "location", edit_user_path(@user) %> ***
         <% else %>
           Your Location: <%= @user.city %>, <%= @user.state %>
         <% end %>
