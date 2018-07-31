@@ -1,24 +1,18 @@
 # README
+Description: I Have That
+I Have That is a community lending app where users can sign-up for an account through their google account for through the creation of an account by providing an email address, password, and user name.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The purpose of this app is to list items you want to make available to your community for lending and share your resources. Users can borrow items from other users as well.
 
-Things you may want to cover:
+Installation:
+From the command line Run git clone 'git@github.com:emikojima/i-have-that-v2.git'
+Run 'bundle install'
+Run 'rake db:migrate'
+Run 'rails-s' to launch application in the browser.
 
-* Ruby version
+Contributer's Guide:
+File an issue with a pull request through github. 
 
-* System dependencies
+Built With Rails framework
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+License This project is licensed under the MIT License - see the LICENSE.md file for details
