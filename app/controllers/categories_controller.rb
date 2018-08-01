@@ -5,8 +5,14 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.create(category_params)
-    redirect_to categories_path
+    @categories = Category.all
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to categories_path
+    else
+      @error = @category.errors.full_messages
+      render :new
+    end
   end
 
   def index

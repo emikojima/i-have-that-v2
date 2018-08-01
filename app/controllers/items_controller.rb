@@ -1,20 +1,21 @@
 class ItemsController < ApplicationController
+  before_action :find_user
+  before_action :find_user_item, only: [:edit, :show, :destroy, :update]
+
   def new
-    @user = find_user
     @item = Item.new(user_id: @user.id)
     @catgories = Category.all
    end
 
    def index
-     @user = find_user
-     @items = @user.items
+    @items = @user.items
    end
 
   def create
-      @item = Item.new(item_params)
-      @user = User.find(params[:user_id])
+    @item = Item.new(item_params)
+    @user = User.find(params[:user_id])
     if @item.save
-        flash[:message] = "Item successfully created."
+      flash[:message] = "Item successfully created."
       redirect_to user_item_path(@user, @item)
     else
       @error = @item.errors.full_messages
@@ -23,44 +24,26 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @user = find_user
-    @item = @user.items.find_by(id: params[:id])
   end
 
   def all
-    @user = find_user
-    @items = []
-    if params[:search]
-      @users = User.where(city: params[:search].upcase)
-      @users.each do |user|
-      @items << user.items
-      end
-    else
-      @items = Item.all
-    end
+    @items = Item.search_items(params[:search])
   end
 
   def edit
     @catgories = Category.all
-    if own_page?
-      @user = find_user
-      @item = @user.items.find_by(id: params[:id])
-    else
-    flash[:message] = "You cannot edit someone else's item."
+    if !own_page?
+      flash[:message] = "You cannot edit someone else's item."
       redirect_to items_path
     end
   end
 
   def update
-    @user = find_user
-    @item = @user.items.find_by(id: params[:id])
     @item.update(item_params)
     redirect_to user_item_path(@user, @item)
   end
 
   def destroy
-    @user = find_user
-    @item = @user.items.find_by(id: params[:id])
     @item.delete
     redirect_to user_items_path(@user)
   end
@@ -71,6 +54,10 @@ class ItemsController < ApplicationController
   end
 
   def find_user
-    User.find_by(id: params[:user_id])
+    @user = User.find_by(id: params[:user_id])
+  end
+
+  def find_user_item
+    @item = @user.items.find_by(id: params[:id])
   end
 end
