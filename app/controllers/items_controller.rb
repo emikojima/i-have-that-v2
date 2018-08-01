@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
       @item = Item.new(item_params)
       @user = User.find(params[:user_id])
     if @item.save
+        flash[:message] = "Item successfully created."
       redirect_to user_item_path(@user, @item)
     else
       @error = @item.errors.full_messages
@@ -45,6 +46,7 @@ class ItemsController < ApplicationController
       @user = find_user
       @item = @user.items.find_by(id: params[:id])
     else
+    flash[:message] = "You cannot edit someone else's item."
       redirect_to items_path
     end
   end

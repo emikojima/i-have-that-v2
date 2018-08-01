@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     if current_user.id == params[:id].to_i
       @user = current_user
     else
-      @error = "You cannot edit someone else's page."
+      flash[:message] = "You cannot edit someone else's page."
       redirect_to users_path
     end
   end

@@ -4,4 +4,6 @@ class Item < ApplicationRecord
   belongs_to :category, optional: true
   default_scope -> { order('name ASC') }
   validates :name, presence: true
+  validates :description, presence: true
+  validates :category, presence: true
 end
