@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if current_user.id == params[:id].to_i
+    if session[:user_id] == params[:id].to_i
       @user = current_user
     else
       flash[:message] = "You cannot edit someone else's page."

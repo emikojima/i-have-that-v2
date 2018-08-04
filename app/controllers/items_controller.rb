@@ -1,10 +1,14 @@
 class ItemsController < ApplicationController
-  before_action :find_user
-  before_action :find_user_item, only: [:edit, :show, :destroy, :update]
+  before_action :page_user
+  before_action :page_user_item, only: [:edit, :show, :destroy, :update]
 
   def new
-    @item = Item.new(user_id: @user.id)
-    @catgories = Category.all
+    if own_page?
+      @item  = Item.new(user_id: @user.id)
+      @catgories = Category.all
+    else
+      redirect_to user_path(current_user)
+    end
    end
 
    def index
@@ -53,11 +57,15 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :description, :user_id, :review_id, :available, :category_id, :city)
   end
 
-  def find_user
+  def page_user
     @user = User.find_by(id: params[:user_id])
   end
 
-  def find_user_item
+  def page_user_item
     @item = @user.items.find_by(id: params[:id])
+  end
+
+  def own_page?
+    current_user.id == page_user.id
   end
 end

@@ -6,10 +6,10 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence: true, uniqueness: true
   default_scope -> { order('name ASC') }
-  before_save { |user| user.city = city.upcase }
-  before_update { |user| user.city = city.upcase }
-  before_save { |user| user.state = state.upcase }
-  before_update { |user| user.state = state.upcase }
+  before_save { |user| user.city = city.upcase unless user.city == nil}
+  before_update { |user| user.city = city.upcase unless user.city == nil}
+  before_save { |user| user.state = state.upcase unless user.state == nil}
+  before_update { |user| user.state = state.upcase unless user.state == nil }
   accepts_nested_attributes_for :items
 
   # geocoded_by :address

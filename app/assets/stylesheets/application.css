@@ -17,7 +17,8 @@
   body {
    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
    line-height:  1.6;
-    background: url("nature1.jpg");
+    background: url("nature3.jpg") no-repeat;
+    background-size: 130%;
 
   }
 
@@ -50,10 +51,10 @@
     width: 85%;
   }
   .image_responsive_main_page {
-  background: url( asset-path('nature1.jpg') ) no-repeat;
+  background: url("nature1.jpg") no-repeat;
    background-size: 100% 100%;
-}
-  }
+ }
+
   .end {
     background:lightgray;
     text-align: center;
@@ -72,6 +73,7 @@
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
     margin:30px auto;
+    font-size: 150%;
 }
   .flash {
     opacity: none;
@@ -101,9 +103,9 @@
       text-align: center;
   }
 
-  p {
+  /* p {
     margin-bottom: 18px;
-  }
+  } */
 
   .main {
     overflow: hidden;

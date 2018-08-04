@@ -16,7 +16,5 @@ class ApplicationController < ActionController::Base
    end
   end
 
-  def own_page?
-    current_user.id == params[:user_id].to_i
-  end
+
 end

@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="img-responsive main-image" background = url( asset-path('nature1.jpg') )>
+  <body class="img-responsive main-image">
   <!-- <ul class="topnav">
   <li><a class="active" href="/items">Home</a></li>
   <li><a href="/user">Community</a></li>
@@ -18,8 +18,9 @@
   <!-- <img src="images/corneal-small.png" class="img-responsive main-image"></header> -->
   <div class="wrapper">
     <div class="headerbox">
-    <h1 style="text-align:center; ">Welcome to I HAVE THAT!</h1>
-    <h3 style="text-align:center; ">A community lending page.</h3>
+    <h1>I HAVE THAT!</h1>
+    <p>◦ Lend ◦ Borrow ◦ Share ◦</p>
+    
     </div>
     <div class="error">
       <% if @error != nil %>
@@ -31,7 +32,7 @@
     <div class="flash">
       <% flash.each do |key, value| %>
          <div class="alert alert-<%= key %>"><%= value %></div>
-       <% end %> 
+       <% end %>
     </div>
 
     <%= yield %>
