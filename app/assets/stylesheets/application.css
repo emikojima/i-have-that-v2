@@ -17,7 +17,7 @@
   body {
    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
    line-height:  1.6;
-    background: url("nature3.jpg") no-repeat;
+    background: url("nature3.jpg");
     background-size: 130%;
 
   }
@@ -50,10 +50,10 @@
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
   }
-  .image_responsive_main_page {
+  /* .image_responsive_main_page {
   background: url("nature1.jpg") no-repeat;
    background-size: 100% 100%;
- }
+ } */
 
   .end {
     background:lightgray;
@@ -134,8 +134,13 @@
 
   footer.branding {
     border-top: 2px solid #ccc;
+    border-bottom: 2px solid #ccc;
     margin-top: 20px;
-    padding-top: 20px;
+    padding: 20px;
+    background-color: lightgray;
+    opacity: .9;
+
+
   }
 }
 

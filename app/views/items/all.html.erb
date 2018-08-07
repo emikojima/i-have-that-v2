@@ -5,6 +5,6 @@
 
     <ul> <% @items.each do |i| %>
     <br><h3><li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇</h3>
-     : Located in <%= i.user.city %>, <%= i.user.state %> :
+     : Located in <%= i.user.city unless i.user == nil  %>, <%= i.user.state unless i.user == nil%> :
     <p> Availability: <%= i.available ? "This item is AVAILABLE!" : "UNAVAILABLE. Please Check Back Later" %></li> </p>
     <% end %></ul>
