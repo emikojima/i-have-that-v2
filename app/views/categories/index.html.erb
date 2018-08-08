@@ -3,21 +3,20 @@
   Search for Items by Name <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
-<ul>
   <% if @items %>
-  <ul> <% @items.each do |i| %>
-  <br><h3><li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇</h3>
-   : Located in <%= i.user.city unless i.user == nil  %>, <%= i.user.state unless i.user == nil%> :
-  <p> Availability: <%= i.available ? "This item is AVAILABLE!" : "UNAVAILABLE. Please Check Back Later" %></li> </p>
-  <% end %></ul>
-<%else%>
-  <br><li><% @categories.group(:name).each do |cat|%>
-    <h3>∇ <%= cat.name %> ∇</h3>
-    Description: <%= cat.description %><br>
-    <%= cat.items.count %> item(s) in this category:<br>
-    <% cat.items.each do |item|%>
-      ◦ <%=link_to item.name, user_item_path(item.user_id, item) %><br>
+    <ul> <% @items.each do |i| %>
+    <br><h3><li>∇ <%= link_to i.name, user_item_path(i.user_id, i) %> ∇</h3>
+     : Located in <%= i.user.city unless i.user == nil  %>, <%= i.user.state unless i.user == nil%> :
+    <p> Availability: <%= i.available ? "This item is AVAILABLE!" : "UNAVAILABLE. Please Check Back Later" %></li> </p>
+    <% end %></ul>
+  <% else %>
+    <br><ul><% @categories.group(:name).each do |cat|%>
+      <li><h3>∇ <%= cat.name %> ∇</h3>
+      Description: <%= cat.description %><br>
+      <%= cat.items.count %> item(s) in this category:<br>
+      <% cat.items.each do |item|%>
+        ◦ <%=link_to item.name, user_item_path(item.user_id, item) %><br>
       <% end %><br>
-  <% end %></li>
-  <%end%>
+    <% end %></li>
+  <% end %>
 </ul>

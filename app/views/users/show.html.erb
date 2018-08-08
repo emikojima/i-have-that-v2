@@ -31,8 +31,8 @@
     <% else %>
       <ul>
       <li> <% @user.items.each do |i| %>
-      Item Name: <%= link_to i.name, user_item_path(@user, i) %> <br>
-      Item Availability: <%= i.available == true ? "   This item is AVAILABLE!" : "   UNAVAILABE. Please Check Back Later"%><br><br>
+      <h4> Item Name: <%= link_to i.name, user_item_path(@user, i) %></h4>
+      <p>Item Availability: <%= i.available == true ? "   This item is AVAILABLE!" : "   UNAVAILABE. Please Check Back Later"%></p>  <br>
       <% end %> </li></ul>
     <% end %>
   <% end %>
