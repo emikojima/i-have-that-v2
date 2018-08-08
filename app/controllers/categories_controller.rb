@@ -16,10 +16,10 @@ class CategoriesController < ApplicationController
   end
 
   def index
-    if params[:search] && params[:search] != ""
+    if params[:search] && !params[:search].blank?
       @items = Item.where('name LIKE ?', "%#{params[:search]}%")
       if @items.empty?
-        flash[:message] = "No Item Found"
+        flash[:message] = "There are no items that match '#{params[:search]}'."
         redirect_to categories_path
       end
     else
