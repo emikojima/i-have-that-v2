@@ -27,6 +27,11 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def pop
+    category = Category.joins(:items).select("categories.*, COUNT(category_id) as scount").order("scount DESC").limit(1)
+    @category = category.map{|c|c}.flatten
+  end
+
   private
   def category_params
     params.require(:category).permit(:name, :description)

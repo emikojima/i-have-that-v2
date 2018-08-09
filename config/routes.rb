@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
+  get '/popular', to: 'categories#pop'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

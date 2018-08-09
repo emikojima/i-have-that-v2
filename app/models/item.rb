@@ -18,4 +18,8 @@ class Item < ApplicationRecord
     end
   end
 
+  def available?
+    self.available == true ? "   This item is AVAILABLE!" : "   UNAVAILABLE. Please Check Back Later"
+  end
+
 end

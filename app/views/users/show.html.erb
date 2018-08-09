@@ -3,9 +3,9 @@
       <p>Δ Δ Δ</p>
       <h3 >Hello, <%= @user.name %>.</h3>
       Your Email: <%= @user.email %><br>
-        <% if @user.city == nil || @user.state == nil || @user.city.empty? || @user.state.empty?%>
+        <% if @user.city.blank?|| @user.state.blank? %>
         <%= flash[:message] = "PLEASE ADD YOUR LOCATION" %>
-        <h4><%= link_to "⊳⊳ HERE ⊲⊲", edit_user_path(@user) %></h4>   
+        <h4><%= link_to "⊳⊳ HERE ⊲⊲", edit_user_path(@user) %></h4>
         <% else %>
           Your Location: <%= @user.city %>, <%= @user.state %>
         <% end %>
@@ -32,7 +32,7 @@
       <ul>
       <li> <% @user.items.each do |i| %>
       <h4>◦ <%= link_to i.name, user_item_path(@user, i) %> ◦</h4>
-      <p>Item Availability: <%= i.available == true ? "   This item is AVAILABLE!" : "   UNAVAILABE. Please Check Back Later"%></p>  <br>
+      <p>Item Availability: <%= i.available? %></p>  <br>
       <% end %> </li></ul>
     <% end %>
   <% end %>
