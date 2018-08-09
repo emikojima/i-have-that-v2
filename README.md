@@ -7,7 +7,7 @@ The purpose of this app is to list items you want to make available to your comm
 # Demo:
 ![Imgur](https://media.giphy.com/media/1zgvDawO5VAx1ou5wE/giphy.gif)
 
-Installation:
+# Installation:
 * You can install the rails gem by typing 'gem install rails' in the command line, if you don't have it already.
 * From the command line Run 'git clone git@github.com:emikojima/i-have-that-v2.git'
 * Run 'bundle install'
@@ -15,9 +15,9 @@ Installation:
 * Run 'rails-s' to launch application in the browser.
 * View on localhost:3000
 
-#Contributer's Guide:
+# Contributer's Guide:
 File an issue with a pull request through github.
 
 Built With Rails framework
 
-#License This project is licensed under the MIT License - see the LICENSE.md file for details
+# License This project is licensed under the MIT License - see the LICENSE.md file for details
