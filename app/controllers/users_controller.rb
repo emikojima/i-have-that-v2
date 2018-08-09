@@ -37,8 +37,12 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      @error = @user.errors.full_messages
+    render 'edit'
+    end
   end
 
   def destroy

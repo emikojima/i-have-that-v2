@@ -9,13 +9,14 @@
      : Located in <%= i.user.city unless i.user == nil  %>, <%= i.user.state unless i.user == nil%> :
     <p> Availability: <%= i.available ? "This item is AVAILABLE!" : "UNAVAILABLE. Please Check Back Later" %></li> </p>
     <% end %></ul>
+    <br><h5><%= link_to "<<  BACK", categories_path %></h5>
   <% else %>
     <br><ul><% @categories.group(:name).each do |cat|%>
       <li><h3>∇ <%= cat.name %> ∇</h3>
-      Description: <%= cat.description %><br>
-      <%= cat.items.count %> item(s) in this category:<br>
+    <p>Description: <%= cat.description %></p>
+    <p><%= cat.items.count %> item(s) in this category:<br></p>
       <% cat.items.each do |item|%>
-        ◦ <%=link_to item.name, user_item_path(item.user_id, item) %>  ◦<br>
+    <h4>◦ <%=link_to item.name, user_item_path(item.user_id, item) %>  ◦</h4>  
       <% end %><br>
     <% end %></li>
   <% end %>

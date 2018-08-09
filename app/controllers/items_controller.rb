@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   def all
     @items = Item.search_items(params[:search])
     if @items.empty?
-      flash[:message] = "Oh no! There are no items for lending in that location."
+      flash[:message] = "Oh no! There are no items for lending in #{params[:search].titleize}."
       redirect_to items_path
     end
   end

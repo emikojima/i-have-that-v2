@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
   def index
     if params[:search] && !params[:search].blank?
       @items = Item.where('name LIKE ?', "%#{params[:search]}%")
-      if @items.empty?
+      if @items.blank?
         flash[:message] = "There are no items that match '#{params[:search]}'."
         redirect_to categories_path
       end
@@ -27,16 +27,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def self.search_items(word)
-    if word && !word.blank?
-      @users = User.where(city: word.upcase)
-      @users.map do |user|
-      user.items
-      end.flatten
-    else
-      Item.all
-    end
-  end
   private
   def category_params
     params.require(:category).permit(:name, :description)
