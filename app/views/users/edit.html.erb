@@ -1,4 +1,5 @@
 <div class="form">
   <h2>Edit your profile</h2><br>
   <%= render 'form' %>
+  <%= button_to "Delete Your Account", @user, method: :delete,  data: { confirm: "You sure?" } %>
 </div>

@@ -5,7 +5,7 @@
       Your Email: <%= @user.email %><br>
         <% if @user.city == nil || @user.state == nil || @user.city.empty? || @user.state.empty?%>
         <%= flash[:message] = "PLEASE ADD YOUR LOCATION" %>
-          *** Please add your <%= link_to "location", edit_user_path(@user) %> ***
+        <h4><%= link_to "⊳⊳ HERE ⊲⊲", edit_user_path(@user) %></h4>   
         <% else %>
           Your Location: <%= @user.city %>, <%= @user.state %>
         <% end %>

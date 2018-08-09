@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  has_many :items
+  has_many :items, dependent: :destroy
   has_many :categories, through: :items
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates :email, presence: true, uniqueness: true
