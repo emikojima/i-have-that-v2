@@ -4,8 +4,8 @@ I Have That is a Rails web application and community lending app where users can
 
 The purpose of this app is to list items you want to make available to your community for lending and share your resources. Users can borrow items from other users as well.
 
-#Demo:
-![Imgur](https://media.giphy.com/media/1zgvDawO5VAx1ou5wE/200w_d.gif)
+# Demo:
+![Imgur](https://media.giphy.com/media/1zgvDawO5VAx1ou5wE/giphy.gif)
 
 Installation:
 * You can install the rails gem by typing 'gem install rails' in the command line, if you don't have it already.
