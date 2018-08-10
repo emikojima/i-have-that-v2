@@ -14,6 +14,7 @@ Built with Rails
 * From the command line Run `git clone git@github.com:emikojima/i-have-that-v2.git`
 * Run `bundle install`
 * Run `rake db:migrate`
+* Run `rake db:seed` to populate with seed data.
 * Run `rails s` to launch application in the browser.
 * View on localhost:3000
 
