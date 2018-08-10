@@ -28,8 +28,9 @@ class CategoriesController < ApplicationController
   end
 
   def pop
-    category = Category.joins(:items).select("categories.*, COUNT(category_id) as scount").order("scount DESC").limit(1)
-    @category = category.map{|c|c}.flatten
+    # category = Category.joins(:items).select("categories.*, COUNT(category_id) as scount").order("scount DESC").limit(1)
+    items = Item.group(:category_id).to_a
+    @item = items.first
   end
 
   private
