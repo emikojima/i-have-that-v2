@@ -7,65 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(name: "keiko", email: "keiko@test.com", password: "keiko", city: "Oakland", state: "CA")
 User.create(name: "suni", email: "suni@test.com", password: "suni", city: "Oakland", state: "CA")
-User.create(name: "yuri", email: "yuri@test.com", password: "yuri", city: "Oakland", state: "CA")
+User.create(name: "yuri", email: "yuri@test.com", password: "yuri", city: "Richmond", state: "CA")
 
 Category.create(name:"Outdoors - Warm Weather", description: "Camping, Fishing, Backpacking, etc.")
 Category.create(name:"Outdoors - Cold Weather", description: "Ski, Snowboarding, Snowshoe, etc.")
 Category.create(name:"Building Tools", description: "Woodworking tools, saws, drills, etc,")
 Category.create(name:"Gardening Tools", description: "Shovels, lawn mowers, rakes, etc,")
+Category.create(name:"FREE", description: "Items for you to keep for FREE!")
 
 Item.create(name: "Circ Saw", description: "Circ Saw for cutting planks of wood.", category_id: "3", user_id: "2")
-
-User.create([
-  { state: 'AL'},
-  { state: 'AK'},
-  { state: 'AZ'},
-  { state: 'AR'},
-  { state: 'CA'},
-  { state: 'CO'},
-  { state: 'CT'},
-  { state: 'DE'},
-  { state: 'DC'},
-  { state: 'FL'},
-  { state: 'GA'},
-  { state:'HI'},
-  { state: 'ID'},
-  { state: 'IL'},
-  { state: 'IN'},
-  { state: 'IA'},
-  { state: 'KS'},
-  { state: 'KY'},
-  { state: 'LA'},
-  { state: 'ME'},
-  { state:'MD'},
-  { state: 'MA'},
-  { state: 'MI'},
-  { state: 'MN'},
-  { state: 'MS'},
-  { state:'MO'},
-  { state: 'MT'},
-  { state: 'NE'},
-  { state: 'NV'},
-  { state: 'NH'},
-  { state: 'NJ'},
-  { state: 'NM'},
-  { state: 'NY'},
-  { state: 'NC'},
-  { state: 'ND'},
-  { state: 'OH'},
-  { state: 'OK'},
-  { state: 'OR'},
-  { state: 'PA'},
-  { state: 'RI'},
-  { state: 'SC'},
-  { state: 'SD'},
-  { state: 'TN'},
-  { state: 'TX'},
-  { state: 'UT'},
-  { state: 'VT'},
-  { state: 'VA'},
-  { state: 'WA'},
-  { state: 'WV'},
-  { state: 'WI'},
-  { state: 'WY'}
-])
+Item.create(name: "Tent", description: "Tent for 4 people.", category_id: "1", user_id: "1")
+Item.create(name: "Lawn Mower - Gas", description: "Push lawn mower by Cat Brand", category_id: "4", user_id: "3")
+Item.create(name: "Snow Shoes", description: "Size Small Womens", category_id: "2", user_id: "3")

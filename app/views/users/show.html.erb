@@ -4,13 +4,13 @@
       <h3 >Hello, <%= @user.name %>.</h3>
       Your Email: <%= @user.email %><br>
         <% if @user.city.blank?|| @user.state.blank? %>
-        <%= flash[:message] = "PLEASE ADD YOUR LOCATION" %>
-        <h4><%= link_to "⊳⊳ HERE ⊲⊲", edit_user_path(@user) %></h4>
+          <%= flash[:message] = "PLEASE ADD YOUR LOCATION" %>
+          <h4><%= link_to "⊳⊳ HERE ⊲⊲", edit_user_path(@user) %></h4>
         <% else %>
           Your Location: <%= @user.city %>, <%= @user.state %>
         <% end %>
       <br><p>∇ ∇ ∇</p>
-    <br>  Your Items:
+      <br> Your Items:
           <% if @user.items.empty? %>
               <%= "You have no items listed for lending." %><br>
           <% else %>
