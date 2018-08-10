@@ -21,5 +21,8 @@ Built with Rails
 ## Contributer's Guide:
 File an issue with a pull request through github.
 
+## Code of Conduct
+Everyone interacting in the IHaveThat project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://www.contributor-covenant.org/version/1/4/code-of-conduct).
+
 ## License:
  This project is licensed under the MIT License - see the LICENSE.md file for details
